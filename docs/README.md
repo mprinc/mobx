@@ -54,12 +54,12 @@ For more options see the [installation page](intro/installation.md).
 
 ## Introduction
 
-MobX is a battle tested library that makes state management simple and scalable by transparently applying functional reactive programming (TFRP).
+MobX is a battle tested library that makes <span class='definition'>state management</span> simple and scalable by <span class='definition'>transparently applying functional reactive programming (TFRP)</span>.
 The philosophy behind MobX is very simple:
 
-_Anything that can be derived from the application state, should be derived. Automatically._
+<span class='important'>_Anything that can be derived from the application state, should be <span class='definition'>derived</span>. Automatically._</span>
 
-which includes the UI, data serialization, server communication, etc.
+which includes the <span class='important'>UI, data serialization, server communication</span>, etc.
 
 <img alt="MobX unidirectional flow" src="assets/flow.png" align="center" />
 
@@ -67,11 +67,11 @@ TODO: clean this up
 
 Easy to read, easy to write. Optimized out of the box.
 
-React and MobX together are a powerful combination. React renders the application state by providing mechanisms to translate it into a tree of renderable components. MobX provides the mechanism to store and update the application state that React then uses.
+React and MobX together are a powerful combination. <span class='definition'>React renders the application state</span> by providing mechanisms to translate it into a tree of renderable components. <span class='definition'>MobX provides the mechanism to store and update the application state</span> that React then uses.
 
-Both React and MobX provide an optimal and unique solutions to common problems in application development. React provides mechanisms to optimally render UI by using a virtual DOM that reduces the number of costly DOM mutations. MobX provides mechanisms to optimally synchronize application state with your React components by building a reactive dependency tree that is only updated when strictly needed and is never stale. MobX will optimize your React components for you, without needing to specify data dependencies, use `memo`, or refactoring states or contexts to make things optimal.
+Both React and MobX provide an optimal and unique solutions to common problems in application development. React provides mechanisms to optimally render UI by using a virtual DOM that reduces the number of costly DOM mutations. MobX provides mechanisms to optimally synchronize application state with your React components by building a <span class='definition'>reactive dependency tree</span> that is <span class='important'>only updated when strictly needed and is never stale</span>. <span class='important'>MobX will optimize your React components for you</span>, without needing to specify data dependencies, use `memo`, or refactoring states or contexts to make things optimal.
 
-In fact, with MobX state can be completely separated from your UI layer. This makes testing much simpler and enables code sharing between stacks and frameworks, and leads to a natural separation of concerns.
+In fact, <span class='important'>with MobX state can be completely separated from your UI layer</span>. <span class='important'>This makes testing much simpler and enables <span class='definition'>code sharing between stacks and frameworks</span>, and leads to a natural <span class='definition'>separation of concerns</span></span>.
 
 ## Example
 
@@ -134,17 +134,17 @@ Read on to learn about some of the benefits of using MobX.
 
 TODO: clean this up, and move up, merge with intro section?
 
-MobX is one of the least obtrusive libraries you can use for state management. That makes the `MobX` approach not just simple, but very scalable as well. It has caused many well known companies to adopt MobX, which is used at companies like Microsoft, Amazon, Netflix, EA Games and [many more](https://github.com/mobxjs/mobx/issues/681).
+<span class='definition'>MobX is one of the least obtrusive libraries you can use for state management</span>. That makes the `MobX` approach not just simple, but very scalable as well. It has caused <span class='important'>many well known companies to adopt MobX, which is used at companies like Microsoft, Amazon, Netflix, EA Games and [many more](https://github.com/mobxjs/mobx/issues/681)</span>.
 
-The reason for MobX's popularity boil down to this: _With MobX you write typically less and more straight-forward code, that is better optimized than comparable solutions_. In other words, it maximizes productivity.
+The reason for MobX's popularity boil down to this: <span class='important'>_With MobX you write typically less and more straight-forward code, that is better optimized than comparable solutions_</span>. In other words, it maximizes productivity.
 
--   **Mutable Data < Immutable Data < Observable Data**. Immutability is too often seen as silver bullet in programming. While it is justified in many cases, for stateful data or CRUD operations it is often a mismatch. Re-creating an object just to modify one of its attributes is not only cognitive challenging, it is inefficient as well. It does make change detection easy. But only compared to 'classic' mutable data. Observable data will pick up changes without any diffing. At all. And you will always be looking at the latest version. From anywhere.
 -   **Simpler actions are easier to read and maintain**. As demonstrated above, modifying state when using MobX is very straightforward. You write down your intentions imperatively. And MobX will make sure no mutation will goes undetected.
--   **Fine grained observability is efficient**. MobX is a reactive library that builds a graph of all the derivations in your application to find the least number of re-computations that is needed to prevent staleness. By performing runtime analysis it will optimize at a much finer granularity than any programmer would to by hand.
--   **Access any observable anywhere**. If an observable is used in a reactive context, MobX will track it. Regardless how it got there; through a closure, module import, React component prop or context? It doesn't matter. That keeps things simple and guarantees architectural freedom. This doesn't mean that there shouldn't be any limitations on how data is organized. But the limitations shouldn't be driven by the limitations of the state management libraries, but rather by the conceptual design decisions your team makes.
--   **Structure state using any common language construct**. With MobX you don't need to normalize your data. This makes the library very suitable for very complex domain models (At Mendix for example ~500 different domain classes in a single application). MobX has few opinions, so you are free to either use classes or plain old objects. To store direct references or just identifiers.
--   **Easy interoperability**. MobX works with enriched but plain javascript structures. Due to its unobtrusiveness it works with most javascript libraries out of the box, without needing MobX specific flavors. So you can simply keep using promises, async/await, generators, your existing router, data fetching, and utility libraries like `react-router`, `director`, `superagent`, `lodash` etc.
--   **Asynchronous processes aren't special**. They are merely multiple synchronous actions spread over time. Because observable data structures allow you to hold on to references, asynchronous processes aren't more complicated than they should be.
+-   **Mutable Data < Immutable Data < Observable Data**. <span class='definition'>Immutability</span> is too often seen as silver bullet in programming. While it is justified in many cases, for stateful data or CRUD operations it is often a mismatch. <span class='definition'>Re-creating an object</span> just to modify one of its attributes is not only cognitive challenging, it is inefficient as well. <span class='definition'>It does make change detection easy</span>. But only compared to 'classic' mutable data. <span class='definition'>Observable data will pick up changes without any diffing</span>. <span class='important'>At all. And you will always be looking at the latest version. From anywhere</span>.
+-   **Fine grained observability is efficient**. MobX is a reactive library that builds a <span class='definition'>graph of all the derivations</span> in your application to find the least number of re-computations that is needed to prevent staleness. By performing runtime analysis it will optimize at a much finer granularity than any programmer would to by hand.
+-   **Access any observable anywhere**. <span class='important'>If an observable is used in a reactive context, MobX will track it</span>. Regardless how it got there; through a closure, module import, React component prop or context? It doesn't matter. That keeps things simple and guarantees architectural freedom. This doesn't mean that there shouldn't be any limitations on how data is organized. But the limitations shouldn't be driven by the limitations of the state management libraries, but rather by the conceptual design decisions your team makes.
+-   **Structure state using any common language construct**. With MobX you <span class='important'>don't need to normalize your data</span>. This makes the library very suitable for very complex domain models (At Mendix for example ~500 different domain classes in a single application). MobX has few opinions, so you are free to either <span class='definition'>use classes or plain old objects</span>. To store <span class='definition'>direct references or just identifiers</span>.
+-   **Easy interoperability**. MobX works with <span class='definition'>enriched but plain javascript structures</span>. <span class='important'>Due to its unobtrusiveness it <span class='definition'>works with most javascript libraries</span> out of the box, without needing MobX specific flavors</span>. So <span class='important'>you can simply keep using promises, async/await, generators, your existing router, data fetching, and utility libraries like `react-router`, `director`, `superagent`, `lodash` etc</span>.
+-   **Asynchronous processes aren't special**. They are merely <span class='definition'>multiple synchronous actions spread over time</span>. Because <span class='important'>observable data structures allow you to hold on to references, asynchronous processes aren't more complicated</span> than they should be.
 
 The philosophy and benefits of the mental model provided by MobX are described in detail in the blogs [UI as an afterthought](https://michel.codes/blogs/ui-as-an-afterthought) and [How to decouple state and UI (a.k.a. you don’t need componentWillMount)](https://hackernoon.com/how-to-decouple-state-and-ui-a-k-a-you-dont-need-componentwillmount-cc90b787aa37).
 

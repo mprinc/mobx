@@ -9,7 +9,7 @@ hide_title: true
 
 # Using `trace` for debugging
 
-Trace is a small utility that helps to find out why your computed values, reactions or components are re-evaluating.
+<span class='definition'>Trace</span> is a small utility that helps to find out why your computed values, reactions or components are re-evaluating.
 
 It can be used by simply importing `import { trace } from "mobx"`, and then put it inside a reaction or computed value.
 It will print why it is re-evaluating the current derivation.

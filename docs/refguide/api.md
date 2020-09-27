@@ -524,12 +524,12 @@ Usage 🚀:
 
 _Transaction is a low-level api, it is recommended to use [`action`](#action) / [`runInAction`](#runinaction) instead_
 
-`transaction` can be used to batch a bunch of updates without notifying any observers until the end of the transaction. Like `untracked`, it is automatically applied by `action`, so usually it makes more sense to use actions than to use `transaction` directly.
+<span class='important'>`transaction` can be used to batch a bunch of updates without notifying any observers until the end of the transaction</span>. Like `untracked`, it is automatically applied by `action`, so usually it makes more sense to use actions than to use `transaction` directly.
 
-`transaction` takes a single, parameterless `worker` function as argument and runs it.
+`transaction` takes a <span class='definition'>single, parameterless `worker` function</span> as argument and runs it.
 No observers are notified until this function has completed.
 `transaction` returns any value that was returned by the `worker` function.
-Note that `transaction` runs completely synchronously.
+Note that <span class='important'>`transaction` runs completely synchronously</span>.
 Transactions can be nested. Only after completing the outermost `transaction` pending reactions will be run.
 
 ```javascript
@@ -558,7 +558,7 @@ Usage 🚀:
 
 _Untracked is a low-level api, it is recommended to use `action`](#action) / [`runInAction`](#runinaction) instead_
 
-Untracked allows you to run a piece of code without establishing observers.
+<span class='definition'>Untracked allows you to run a piece of code without establishing observers</span>.
 Like `transaction`, `untracked` is automatically applied by `action`, so usually it makes more sense to use actions than to use `untracked` directly.
 Example:
 
