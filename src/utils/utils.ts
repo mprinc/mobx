@@ -1,4 +1,4 @@
-import { IObservableArray, globalState, isObservableArray, die } from "../internal"
+import { globalState, die } from "../internal"
 
 // We shorten anything used > 5 times
 export const assign = Object.assign
@@ -18,6 +18,7 @@ export interface Lambda {
 }
 
 const hasProxy = typeof Proxy !== "undefined"
+const plainObjectString = Object.toString()
 
 export function assertProxies() {
     if (!hasProxy) {
@@ -82,7 +83,8 @@ export function isObject(value: any): value is Object {
 export function isPlainObject(value) {
     if (!isObject(value)) return false
     const proto = Object.getPrototypeOf(value)
-    return proto === objectPrototype || proto === null
+    if (proto == null) return true
+    return proto.constructor?.toString() === plainObjectString
 }
 
 // https://stackoverflow.com/a/37865170
@@ -133,13 +135,6 @@ export function createInstanceofPredicate<T>(
     return function (x) {
         return isObject(x) && x[propName] === true
     } as any
-}
-
-/**
- * Returns whether the argument is an array, disregarding observability.
- */
-export function isArrayLike(x: any): x is Array<any> | IObservableArray<any> {
-    return Array.isArray(x) || isObservableArray(x)
 }
 
 export function isES6Map(thing): boolean {

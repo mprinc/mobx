@@ -87,6 +87,56 @@ test("makeObservable picks up annotations", () => {
     expect(t.bound.call(undefined)).toBe(t)
 })
 
+test("makeObservable supports private fields", () => {
+    class Test {
+        private x = 3
+        private y = 2
+
+        private get double() {
+            return this.x * 2
+        }
+
+        private unbound() {
+            return this
+        }
+
+        private bound() {
+            return this
+        }
+
+        constructor() {
+            makeObservable<this, "x" | "double" | "unbound" | "bound">(this, {
+                x: observable,
+                double: computed,
+                unbound: action,
+                bound: action.bound
+            })
+            if (3 - 1 === 4) {
+                makeObservable<this, "x" | "double" | "unbound" | "bound">(this, {
+                    // @ts-expect-error
+                    z: false
+                })
+
+                makeObservable(this, {
+                    // @ts-expect-error
+                    z: false
+                })
+            }
+        }
+    }
+
+    const t: any = new Test()
+    expect(isObservableObject(t)).toBe(true)
+    expect(isObservableProp(t, "x")).toBe(true)
+    expect(isObservableProp(t, "y")).toBe(false)
+
+    expect(isComputedProp(t, "double")).toBe(true)
+    expect(isAction(t.unbound)).toBe(true)
+    expect(isAction(t.bound)).toBe(true)
+    expect(t.unbound.call(undefined)).toBe(undefined)
+    expect(t.bound.call(undefined)).toBe(t)
+})
+
 test("makeObservable has sane defaults", () => {
     class Test {
         x = 3
@@ -114,6 +164,7 @@ test("makeObservable has sane defaults", () => {
             })
             if (3 - 1 === 4) {
                 makeObservable(this, {
+                    x: false,
                     // @ts-expect-error
                     z: true
                 })
@@ -441,4 +492,32 @@ test("makeObservable doesn't trigger in always mode'", () => {
     }
 
     expect(new C()).toBeTruthy()
+})
+
+test("#2457", () => {
+    class BaseClass {
+        @observable
+        value1?: number
+
+        constructor() {
+            makeObservable(this)
+        }
+    }
+
+    class SubClass extends BaseClass {
+        constructor() {
+            super()
+            makeObservable(this)
+        }
+
+        @computed
+        get value1Computed() {
+            return this.value1
+        }
+    }
+
+    const t = new SubClass()
+    expect(isObservableObject(t)).toBe(true)
+    expect(isObservableProp(t, "value1")).toBe(true)
+    expect(isComputedProp(t, "value1Computed")).toBe(true)
 })

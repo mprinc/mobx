@@ -9,13 +9,17 @@ hide_title: true
 
 # Using `trace` for debugging
 
+<<<<<<< HEAD
 <span class='definition'>Trace</span> is a small utility that helps to find out why your computed values, reactions or components are re-evaluating.
+=======
+Trace is a small utility that helps you find out why your computed values, reactions or components are re-evaluating.
+>>>>>>> ff246b33e3d90337e970fbd20d930754de11688f
 
-It can be used by simply importing `import { trace } from "mobx"`, and then put it inside a reaction or computed value.
+It can be used by simply importing `import { trace } from "mobx"`, and then putting it inside a reaction or computed value.
 It will print why it is re-evaluating the current derivation.
 
-Optionally it is possible to automatically enter the debugger by passing `true` as last argument.
-This way the exact mutation that causes the reaction to re-run is still in stack, usually ~8 stack frames up. See the image below.
+Optionally it is possible to automatically enter the debugger by passing `true` as the last argument.
+This way the exact mutation that causes the reaction to re-run will still be in stack, usually ~8 stack frames up. See the image below.
 
 In debugger mode, the debug information will also reveal the full derivation tree that is affecting the current computation / reaction.
 
@@ -27,8 +31,8 @@ In debugger mode, the debug information will also reveal the full derivation tre
 
 [Simple CodeSandbox `trace` example](https://codesandbox.io/s/trace-dnhbz?file=/src/index.js:309-338)
 
-Here's a deployed example for exploring the stack: https://csb-nr58ylyn4m-hontnuliaa.now.sh/
-Be sure to play with chrome debugger's blackbox feature!
+Here's a deployed example for exploring the stack: https://csb-nr58ylyn4m-hontnuliaa.now.sh/.
+Make sure to play with the chrome debugger's blackbox feature!
 
 ## Usage examples
 
@@ -39,12 +43,12 @@ import { observer } from "mobx-react"
 import { trace } from "mobx"
 
 const MyComponent = observer(() => {
-    trace(true) // enter the debugger whenever an observable value causes this component to re-run
+    trace(true) // Enter the debugger whenever an observable value causes this component to re-run.
     return <div>{this.props.user.name}</name>
 })
 ```
 
-Enable trace by using the `reaction` argument of an reaction / autorun:
+Enable trace by using the `reaction` argument of a reaction / autorun:
 
 ```javascript
 mobx.autorun("logger", reaction => {
@@ -62,7 +66,7 @@ trace(user, "fullname")
 # Introspection APIs
 
 The following APIs might come in handy if you want to inspect the internal state of MobX while debugging, or want to build cool tools on top of MobX.
-Also relevant are [`toJS`](tojson.md) and the various [`isObservable*` APIs](api.md#isobservable).
+Also relevant are the various [`isObservable*` APIs](../refguide/object-api.md).
 
 ### `getDebugName`
 
@@ -70,7 +74,7 @@ Usage:
 
 -   `getDebugName(thing, property?)`
 
-Returns a (generated) friendly debug name of an observable object, property, reaction etc. Used by for example the [MobX developer tools](https://github.com/mobxjs/mobx-devtools).
+Returns a (generated) friendly debug name of an observable object, property, reaction etc. Used for example by the [MobX developer tools](https://github.com/mobxjs/mobx-devtools).
 
 ### `getDependencyTree`
 
@@ -90,13 +94,13 @@ Returns a tree structure with all reactions / computations that are observing th
 
 ### `getAtom`
 
-[🚀] Usage:
+Usage:
 
 -   `getAtom(thing, property?)`.
 
 Returns the backing _Atom_ of a given observable object, property, reaction etc.
 
-# Spy [🚀]
+# Spy
 
 Usage:
 
@@ -118,19 +122,19 @@ spy(event => {
 
 Spy listeners always receive one object, which usually has at least a `type` field. The following events are emitted by default by spy.
 
-| type                            | observableKind | other fields                                          | nested |
+| Type                            | observableKind | Other fields                                          | Nested |
 | ------------------------------- | -------------- | ----------------------------------------------------- | ------ |
 | action                          |                | name, object (scope), arguments[]                     | yes    |
 | scheduled-reaction              |                | name                                                  | no     |
 | reaction                        |                | name                                                  | yes    |
 | error                           |                | name, message, error                                  | no     |
-| add,update,remove,delete,splice | \*             | see [observe](observe.md)                             | yes    |
+| add,update,remove,delete,splice | \*             | see [observe](../refguide/observe.md)                 | yes    |
 | report-end                      |                | spyReportEnd=true, time? (total execution time in ms) | no     |
 
 The `report-end` events are part of an earlier fired event that had `spyReportStart: true`.
 This event indicates the end of an event and this way groups of events with sub-events are created.
 This event might report the total execution time as well.
 
-The spy events for observable values are identical to the events passed to `observe`. See [intercept & observe](observe.md#event-overview) for an extensive overview.
+The spy events for observable values are identical to the events passed to `observe`. See [intercept & observe](../refguide/observe.md#event-overview) for an extensive overview.
 
 In production builds, the `spy` API is a no-op as it will be minimized away.

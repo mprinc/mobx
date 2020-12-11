@@ -10,19 +10,16 @@ hide_title: true
 
 _Simple, scalable state management_
 
-[![Build Status](https://travis-ci.org/mobxjs/mobx.svg?branch=master)](https://travis-ci.org/mobxjs/mobx)
-[![Coverage Status](https://coveralls.io/repos/mobxjs/mobx/badge.svg?branch=master&service=github)](https://coveralls.io/github/mobxjs/mobx?branch=master)
-[![Join the chat at https://gitter.im/mobxjs/mobx](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mobxjs/mobx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Discuss MobX on Hashnode](https://hashnode.github.io/badges/mobx.svg)](https://hashnode.com/n/mobx)
+[![Discuss on Github](https://img.shields.io/badge/discuss%20on-GitHub-orange)](https://github.com/mobxjs/mobx/discussions)
+[![npm version](https://badge.fury.io/js/mobx.svg)](https://badge.fury.io/js/mobx)
 [![OpenCollective](https://opencollective.com/mobx/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/mobx/sponsors/badge.svg)](#sponsors)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ---
 
 MobX is made possible by the generosity of the sponsors below, and many [individual backers](http://mobxjs.github.io/mobx/backers-sponsors.html#backers). Sponsoring directly impacts the longevity of this project.
 
-**🥇Gold sponsors (\$3000+ total contribution):** <br/>
+**🥇 Gold sponsors (\$3000+ total contribution):** <br/>
 <a href="https://mendix.com/"><img src="assets/mendix-logo.png" align="center" width="100" title="Mendix" alt="Mendix" /></a>
 <a href="https://frontendmasters.com/"><img src="assets/frontendmasters.jpg" align="center" width="100" title="Frontend Masters" alt="Frontend Masters"></a>
 <a href="https://opensource.facebook.com/"><img src="assets/fbos.jpeg" align="center" width="100" title="Facebook Open Source" alt="Facebook Open Source" /></a>
@@ -31,14 +28,14 @@ MobX is made possible by the generosity of the sponsors below, and many [individ
 <a href="https://coinbase.com/"><img src="assets/coinbase.jpeg" align="center" width="100" title="Coinbase" alt="Coinbase" /></a>
 <a href="https://www.canva.com/"><img src="assets/canva.png" align="center" width="100" title="Canva" alt="Canva" /></a>
 
-**🥈Silver sponsors (\$100+ pm):**<br/>
+**🥈 Silver sponsors (\$100+ pm):**<br/>
 <a href="https://mantro.net/jobs/warlock"><img src="assets/mantro.png" align="center" width="100" title="mantro GmbH" alt="mantro GmbH"></a>
 <a href="https://www.codefirst.co.uk/"><img src="assets/codefirst.png" align="center" width="100" title="CodeFirst" alt="CodeFirst"/></a>
 <a href="https://www.dcslsoftware.com/"><img src="assets/dcsl.png" align="center" width="100" title="DCSL Software" alt="DCSL Software"/></a>
 <a href="https://www.bugsnag.com/platforms/react-error-reporting?utm_source=MobX&utm_medium=Website&utm_content=open-source&utm_campaign=2019-community&utm_term=20190913"><img src="assets/bugsnag.jpg" align="center" width="100" title="Bugsnag" alt="Bugsnag"/></a>
 <a href="https://curology.com/blog/tech"><img src="assets/curology.png" align="center" width="100" title="Curology" alt="Curology"/></a>
 
-**🥉Bronze sponsors (\$500+ total contributions):**<br/>
+**🥉 Bronze sponsors (\$500+ total contributions):**<br/>
 <a href="https://www.algolia.com/"><img src="assets/algolia.jpg" align="center" width="100" title="Algolia" alt="Algolia" /></a>
 <a href="https://talentplot.com/"><img src="assets/talentplot.png" align="center" width="100" title="talentplot" alt="talentplot"></a>
 <a href="https://careers.dazn.com/"><img src="assets/dazn.png" align="center" width="100" title="DAZN" alt="DAZN"></a>
@@ -46,14 +43,9 @@ MobX is made possible by the generosity of the sponsors below, and many [individ
 
 ---
 
-## Installation
-
-Installation: `npm install mobx --save`. For the React bindings: `npm install mobx-react --save`.
-
-For more options see the [installation page](intro/installation.md).
-
 ## Introduction
 
+<<<<<<< HEAD
 MobX is a battle tested library that makes <span class='definition'>state management</span> simple and scalable by <span class='definition'>transparently applying functional reactive programming (TFRP)</span>.
 The philosophy behind MobX is very simple:
 
@@ -74,6 +66,49 @@ Both React and MobX provide an optimal and unique solutions to common problems i
 In fact, <span class='important'>with MobX state can be completely separated from your UI layer</span>. <span class='important'>This makes testing much simpler and enables <span class='definition'>code sharing between stacks and frameworks</span>, and leads to a natural <span class='definition'>separation of concerns</span></span>.
 
 ## Example
+=======
+_Anything that can be derived from the application state, should be derived. Automatically._
+
+MobX is a battle tested library that makes state management simple and scalable by transparently applying functional reactive programming (TFRP).
+The philosophy behind MobX is simple:
+
+<div class="benefits">
+    <div>
+        <div class="pic">😙</div>
+        <div>
+            <h5>Straightforward</h5>
+            <p>With MobX, you write minimalistic, boilerplate free code that captures your intent:
+            Trying to update a record field? Use good old JavaScript assignment.
+            Updating data in an asynchronous process? No special tools are required.
+            The reactivity system will detect all your changes and propagate them out to where they are being used.
+            </p>
+        </div>
+    </div>
+    <div>
+        <div class="pic">🚅</div>
+        <div>
+            <h5>Effortless optimal rendering</h5>
+            <p>
+                MobX tracks all updates and usages of your data at runtime, building a dependency tree that captures all relations between state and output.
+                This guarantees that computations depending on your state, like React components, run only when strictly needed.
+                With MobX, there is no need to manually optimize components using error-prone and sub-optimal techniques like memoization and selectors.
+            </p>
+        </div>
+    </div>
+    <div>
+        <div class="pic">🤹🏻‍♂️</div>
+        <div>
+            <h5>Architectural freedom</h5>
+            <p>
+                MobX is unopinionated and allows you to manage your application state outside of any UI framework.
+                This makes your code decoupled, portable, and above all, easily testable.
+            </p>
+        </div>
+    </div>
+</div>
+
+## A quick example
+>>>>>>> ff246b33e3d90337e970fbd20d930754de11688f
 
 So what does code that uses MobX look like?
 
@@ -83,7 +118,7 @@ import ReactDOM from "react-dom"
 import { makeAutoObservable } from "mobx"
 import { observer } from "mobx-react"
 
-// define application state
+// Model the application state.
 class Timer {
     secondsPassed = 0
 
@@ -102,19 +137,31 @@ class Timer {
 
 const myTimer = new Timer()
 
-setInterval(() => {
-    myTimer.increaseTimer()
-}, 1000)
-
+// Build a user interface for this app that merely uses the state.
 const TimerView = observer(({ timer }) => (
     <button onClick={() => timer.resetTimer()}>Seconds passed: {timer.secondsPassed}</button>
 ))
 
 ReactDOM.render(<TimerView timer={myTimer} />, document.body)
+
+// Update the 'Seconds passed: X' text every second.
+setInterval(() => {
+    myTimer.increaseTimer()
+}, 1000)
 ```
 
+The `observer` wrapper around the `TimerView` React component will automatically detect that rendering
+of the component depends on `timer.secondsPassed`, even though this relationship is not explicitly defined. MobX's reactivity system will make sure the component gets re-rendered when _precisely that_ field is updated in the future.
+
+Every event (`onClick` and `setInterval`) invokes an _action_ (`increaseTimer` and `resetTimer` functions) that updates _observable state_ (`secondsPassed` class property).
+Changes in the observable state are propagated precisely to all _computations_ and _side-effects_ (`TimerView` component) that depend on the changes being made.
+
+<img alt="MobX unidirectional flow" src="assets/flow2.png" align="center" />
+
+You can apply this diagram as a conceptual picture to this simple example or any other application using MobX.
+
 To learn about the core concepts of MobX with a larger example, please read [Concepts & Principles](http://mobxjs.github.io/mobx/intro/concepts.html) or take the [10 minute interactive introduction to MobX and React](https://mobx.js.org/getting-started).
-Read on to learn about some of the benefits of using MobX.
+The philosophy and benefits of the mental model provided by MobX are described in detail in the blogs [UI as an afterthought](https://michel.codes/blogs/ui-as-an-afterthought) and [How to decouple state and UI (a.k.a. you don’t need componentWillMount)](https://hackernoon.com/how-to-decouple-state-and-ui-a-k-a-you-dont-need-componentwillmount-cc90b787aa37).
 
 ## What others are saying...
 
@@ -124,12 +171,11 @@ Read on to learn about some of the benefits of using MobX.
 
 > Working with #mobx is basically a continuous loop of me going “this is way too simple, it definitely won’t work” only to be proven wrong
 
-> Try react-mobx with es6 and you will love it so much that you will hug someone.
-
 > I have built big apps with MobX already and comparing to the one before that which was using Redux, it is simpler to read and much easier to reason about.
 
 > The #mobx is the way I always want things to be! It's really surprising simple and fast! Totally awesome! Don't miss it!
 
+<<<<<<< HEAD
 ## The benefits of MobX
 
 TODO: clean this up, and move up, merge with intro section?
@@ -148,6 +194,8 @@ The reason for MobX's popularity boil down to this: <span class='important'>_Wit
 
 The philosophy and benefits of the mental model provided by MobX are described in detail in the blogs [UI as an afterthought](https://michel.codes/blogs/ui-as-an-afterthought) and [How to decouple state and UI (a.k.a. you don’t need componentWillMount)](https://hackernoon.com/how-to-decouple-state-and-ui-a-k-a-you-dont-need-componentwillmount-cc90b787aa37).
 
+=======
+>>>>>>> ff246b33e3d90337e970fbd20d930754de11688f
 ## Further resources and documentation
 
 -   [Ten minute, interactive MobX + React tutorial](https://mobx.js.org/getting-started)
